@@ -58,8 +58,19 @@ function contains(item, list, cb) {
 
 /* STRETCH PROBLEM */
 
+const items1 = ['Pencil', 'Pencil', 'Pencil', 'Notebook', 'yo-yo', 'yo-yo', 'Gum'];
+
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let newArray = [];
+  for (let i = 0; i < array.length; i++){
+    if (!newArray.includes(array[i])){
+      newArray.push(array[i]);
+    }
+  }
+  cb(newArray);
 }
+
+removeDuplicates(items1, array => console.log(array));

@@ -27,19 +27,19 @@ myHouse();
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
-  let tracker = 0;
-  for (let i = 0; i < tracker + 1; i++) {
-    var count = tracker + 1;
+  let count = 0;
+  return function(){
+    count ++;
     return count;
   }
-  count = tracker;
-  return tracker;
 };
 
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
+const newCounter = counter();
+
+console.log(newCounter());
+console.log(newCounter());
+console.log(newCounter());
+console.log(newCounter());
 
 // Example usage: const newCounter = counter();
 // newCounter(); // 1
@@ -50,4 +50,23 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  const choose = {
+    count: 0,
+    increment: counter => {
+      this.count--;
+      return count;
+    },
+    decrement: counter => {
+      this.count++;
+      return count;
+    }
+  }
+
 };
+
+const addCounter = counterFactory(choose.increment());
+const subCounter = counterFactory(choose.decrement());
+
+console.log(addCounter());
+console.log(subCounter());
+
