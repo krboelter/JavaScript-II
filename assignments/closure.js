@@ -72,5 +72,4 @@ console.log(addCounter());
 console.log(subCounter());
 console.log(subCounter());
 console.log(subCounter());
-console.log(subCounter());
 
