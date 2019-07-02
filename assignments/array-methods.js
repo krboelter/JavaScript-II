@@ -56,28 +56,57 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 let fullName = [];
+
+runners.forEach(runner => fullName.push(`${runner.first_name} ${runner.last_name}`));
+
 console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
 let allCaps = [];
-console.log(allCaps); 
+
+runners.map(runner => allCaps.push(`${runner.first_name}`));
+
+
+console.log(allCaps.toString().toUpperCase().split(","));
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
 let largeShirts = [];
+
+let shirts = runners.filter(shirt => shirt.shirt_size === 'L');
+largeShirts.push(shirts);
+
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
 let ticketPriceTotal = [];
+
+runners.reduce((total, money) => ticketPriceTotal = total += money.donation, 0);
+
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1: use filter() - the race coordinator needs to email everyone about an unexpected $5 park admition, get all of the email addresses.
+let emailList = [];
 
-// Problem 2
+runners.filter(email => emailList.push(email.email));
 
-// Problem 3
+console.log(emailList);
+
+
+// Problem 2: use forEach() -  an unexpected admition is going to cost all runners 5 dollars, add 5 more dollars to every donation
+let newDonation = [];
+
+runners.forEach(addFive => newDonation.push(addFive.donation + 5));
+
+console.log(newDonation);
+// Problem 3: use map() - the race coordinator needs to easily compare the id with the first name, add the first name to the id number
+let nameId = [];
+
+runners.map(newNameAndId => nameId.push(`${newNameAndId.id}: ${newNameAndId.first_name}`))
+
+console.log(nameId);
