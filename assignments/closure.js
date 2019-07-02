@@ -50,24 +50,28 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-  let choose;
   let count = 0;
   return choose = {
-    increment: counter => {
+    decrement: counter => {
       count--;
       return count;
     },
-    decrement: counter => {
+    increment: counter => {
       count++;
       return count;
     }
   }
 };
 
-const addCounter = counterFactory(choose.increment());
-const subCounter = counterFactory(choose.decrement());
+const addCounter = counterFactory().increment;
+const subCounter = counterFactory().decrement;
 
 console.log(addCounter());
+console.log(addCounter());
+console.log(addCounter());
+console.log(subCounter());
+console.log(subCounter());
+console.log(subCounter());
 console.log(subCounter());
 console.log(subCounter());
 
