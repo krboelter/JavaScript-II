@@ -73,5 +73,4 @@ console.log(subCounter());
 console.log(subCounter());
 console.log(subCounter());
 console.log(subCounter());
-console.log(subCounter());
 
